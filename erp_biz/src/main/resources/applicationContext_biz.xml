@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">  
+	<beans>
+		<!-- 部门管理 -->
+		<bean id="depBiz" class="cn.lttest.erp.biz.impl.DepBiz">
+			<property name="depDao" ref="depDao"></property>
+		</bean>
+	
+		<!-- 员工管理 -->
+		<bean id="empBiz" class="cn.lttest.erp.biz.impl.EmpBiz">
+			<property name="empDao" ref="empDao"></property>
+		</bean>
+		
+		<!-- 菜单管理 -->
+		<bean id="menuBiz" class="cn.lttest.erp.biz.impl.MenuBiz">
+			<property name="menuDao" ref="menuDao"></property>
+		</bean>
+		
+		<!-- 商品 -->
+		<bean id="goodsBiz" class="cn.lttest.erp.biz.impl.GoodsBiz">
+			<property name="goodsDao" ref="goodsDao"></property>
+		</bean>
+		
+		<!-- 商品分类 -->
+		<bean id="goodstypeBiz" class="cn.lttest.erp.biz.impl.GoodstypeBiz">
+			<property name="goodstypeDao" ref="goodstypeDao"></property>
+		</bean>
+	
+		
+		<!-- 供应商分类 -->
+		<bean id="supplierBiz" class="cn.lttest.erp.biz.impl.SupplierBiz">
+			<property name="supplierDao" ref="supplierDao"></property>
+		</bean>
+		
+		<!-- 订单-->
+		<bean id="ordersBiz" class="cn.lttest.erp.biz.impl.OrdersBiz">
+			<property name="ordersDao" ref="ordersDao"></property>
+			<property name="empDao" ref="empDao"></property>
+			<property name="supplierDao" ref="supplierDao"></property>
+		</bean>
+		
+		
+		<!-- 订单详情 -->
+		<bean id="orderDetailBiz" class="cn.lttest.erp.biz.impl.OrderDetailBiz">
+			<property name="orderDetailDao" ref="orderDetailDao"></property>
+		</bean>
+		
+		<!-- 报表 -->
+		<bean id="reportBiz" class="cn.lttest.erp.biz.impl.ReportBiz">
+			<property name="reportDao" ref="reportDao"></property>
+		</bean>
+	
+		<!-- 角色 -->
+		<bean id="roleBiz" class="cn.lttest.erp.biz.impl.RoleBiz">
+			<property name="roleDao" ref="roleDao"></property>
+			<property name="menuDao" ref="menuDao"></property>
+		</bean>
+	
+	
+	</beans>
+
+	
+</beans>
+	
