@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.lttest.erp.entity.Emp" table="Emp" >
+        <id name="uuid" >  
+        	<generator class="org.hibernate.id.SequenceGenerator">
+        		<param name="sequence">EMP_SEQ</param>
+        	</generator>  
+        </id>
+        <property name="username" />       
+        <property name="pwd" /> 
+        <property name="name" /> 
+        <property name="tele" /> 
+        <property name="email" /> 
+        <property name="address" /> 
+        <property name="birthday" /> 
+        <property name="gender" /> 
+        
+        
+      
+        <many-to-one name="dep" class="cn.lttest.erp.entity.Dep" column="depuuid" 
+        	lazy="false">
+        </many-to-one>
+        
+        <bag name="roles" order-by="roleuuid" table="emp_role">
+        	<key column="empuuid"></key>
+        	<many-to-many class="cn.lttest.erp.entity.Role" column="roleuuid"></many-to-many>
+        </bag>
+        
+              
+    </class>
+</hibernate-mapping>
